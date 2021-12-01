@@ -10,46 +10,7 @@
     />
     <title>Random Quotes</title>
     <link rel="manifest" href="manifest.json" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      h2 {
-        font-size: 45px;
-        text-align: center;
-      }
-
-      #quote {
-        margin: 20px;
-        font-size: 24px;
-        text-align: center;
-      }
-
-      #next {
-        margin: 10px 0;
-        padding: 15px;
-        font-size: 15px;
-      }
-
-      #lang {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        border: 1px solid gray;
-        border-radius: 4px;
-        padding: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <select name="lang" id="lang">
@@ -61,37 +22,7 @@
     <div id="quote"></div>
     <button id="next">Next Quote</button>
 
-    <script type="text/javascript">
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("service-worker.js");
-      }
-
-      const select = document.getElementById("lang");
-      const nextQuote = document.getElementById("next");
-
-      const random = async (lang) => {
-        const quoteDiv = document.getElementById("quote");
-
-        const url = await fetch(
-          `https://uselessfacts.jsph.pl/random.json?language=${lang}`
-        );
-        const res = await url.json();
-
-        //   console.log(res);
-
-        quoteDiv.innerText = res.text;
-      };
-
-      select.onchange = () => {
-        // console.log(select.value);
-        random(select.value);
-      };
-
-      nextQuote.onclick = () => {
-        random(select.value);
-      };
-
-      random(select.value);
-    </script>
+    <script src="./app.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./index.js"></script>
   </body>
 </html>

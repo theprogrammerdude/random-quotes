@@ -1,7 +1,9 @@
 {
   "name": "Random Quotes",
   "short_name": "Random Quotes",
-  "start_url": "index.html",
-  "scope": "./",
-  "display": "standalone"
+  "start_url": "/index.html",
+  "id": "/index.html",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#ffff00"
 }
